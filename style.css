@@ -1,0 +1,281 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top for longer content */
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.input-section, .template-section, .preview-section {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#downloadCardBtn {
+    background-color: #28a745;
+    margin-top: 15px;
+    display: block; /* Make it block to center it */
+    margin-left: auto;
+    margin-right: auto;
+}
+#downloadCardBtn:hover {
+    background-color: #1e7e34;
+}
+
+
+.note {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.template-options {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.template-option {
+    border: 2px solid transparent;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+.template-option img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.template-option p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.template-option.selected {
+    border-color: #007bff;
+    transform: scale(1.05);
+}
+.template-option:hover {
+    border-color: #9acffa;
+}
+
+
+#id-card-preview-area {
+    min-height: 200px;
+    background-color: #e9ecef;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden; /* Ensures the card itself doesn't make the area too big */
+}
+
+/* --- ID Card Base Styles --- */
+.id-card {
+    box-sizing: border-box;
+    width: 380px; /* Increased width */
+    height: 220px; /* Increased height */
+    border-radius: 15px;
+    padding: 20px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column; /* For header/body structure if needed */
+    color: white;
+    overflow: hidden; /* To clip content if it overflows */
+    position: relative; /* For absolute positioning inside */
+}
+
+.id-card .card-content {
+    display: flex;
+    align-items: center; /* Vertically align items in the row */
+    width: 100%;
+    height: 100%;
+}
+
+.id-card .profile-pic-container {
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.id-card .profile-pic {
+    width: 90px; /* Increased size */
+    height: 90px; /* Increased size */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.8);
+}
+
+.id-card .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically if less text */
+    flex-grow: 1;
+    overflow: hidden; /* Prevents text from breaking layout */
+}
+
+.id-card .name {
+    font-size: 1.6em; /* Increased size */
+    font-weight: bold;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.id-card .username {
+    font-size: 1em; /* Increased size */
+    opacity: 0.8;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.id-card .bio {
+    font-size: 0.8em;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    max-height: 40px; /* Approx 3 lines */
+    overflow: hidden;
+    text-overflow: ellipsis; /* May not work perfectly for multi-line, but good for single */
+    display: -webkit-box; /* For multi-line ellipsis */
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.id-card .stats {
+    font-size: 0.85em; /* Slightly increased */
+    display: flex;
+    justify-content: space-between; /* Spread out stats */
+    margin-top: auto; /* Pushes stats to bottom if info container has space */
+    width: 100%;
+}
+.id-card .stats span {
+    text-align: center; /* Center text under count */
+}
+.id-card .stats .count {
+    display: block;
+    font-weight: bold;
+    font-size: 1.1em; /* Make count more prominent */
+}
+
+/* --- Template 1: Modern Blue --- */
+.id-card.template1 {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+}
+.id-card.template1 .name { color: #fff; }
+.id-card.template1 .username { color: #e0e0e0; }
+.id-card.template1 .bio { color: #f0f0f0; }
+.id-card.template1 .stats { color: #f0f0f0; }
+.id-card.template1 .stats .count { color: #fff; }
+
+
+/* --- Template 2: Dark Chic --- */
+.id-card.template2 {
+    background: linear-gradient(135deg, #495057, #212529);
+}
+.id-card.template2 .profile-pic { border-color: #6c757d; }
+.id-card.template2 .name { color: #f8f9fa; }
+.id-card.template2 .username { color: #adb5bd; }
+.id-card.template2 .bio { color: #ced4da; }
+.id-card.template2 .stats { color: #adb5bd; }
+.id-card.template2 .stats .count { color: #f8f9fa; }
+
+/* --- Template 3: Green Vibe --- */
+.id-card.template3 {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+.id-card.template3 .profile-pic { border-color: #8fdf72; }
+.id-card.template3 .name { color: #fff; }
+.id-card.template3 .username { color: #e0e0e0; }
+.id-card.template3 .bio { color: #f0f0f0; }
+.id-card.template3 .stats { color: #f0f0f0; }
+.id-card.template3 .stats .count { color: #fff; }
+
+/* Instagram Logo (Optional - for aesthetics) */
+.id-card .insta-logo {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px; /* Adjust size as needed */
+    height: 30px;
+    opacity: 0.7;
+}
+
+/* Verified Badge (Optional - for aesthetics) */
+.id-card .verified-badge {
+    width: 18px; /* Adjust size */
+    height: 18px;
+    margin-left: 5px;
+    vertical-align: middle; /* Align with text */
+}
