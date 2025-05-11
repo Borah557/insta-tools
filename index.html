@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram ID Card Generator (Demo)</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Instagram ID Card Generator (Demo)</h1>
+
+        <div class="input-section">
+            <label for="instaUsername">Instagram Username:</label>
+            <input type="text" id="instaUsername" placeholder="e.g., instagram">
+            <button id="fetchInstaData">Get Info & Generate</button>
+            <p class="note">(Note: This demo uses mock data after you click "Get Info")</p>
+        </div>
+
+        <div class="template-section">
+            <h2>Select a Template:</h2>
+            <div class="template-options">
+                <div class="template-option selected" data-template-id="template1">
+                    <img src="https://via.placeholder.com/100x60/007bff/ffffff?text=Modern" alt="Template 1 Thumbnail">
+                    <p>Modern Blue</p>
+                </div>
+                <div class="template-option" data-template-id="template2">
+                    <img src="https://via.placeholder.com/100x60/343a40/ffffff?text=Dark+Chic" alt="Template 2 Thumbnail">
+                    <p>Dark Chic</p>
+                </div>
+                <div class="template-option" data-template-id="template3">
+                    <img src="https://via.placeholder.com/100x60/28a745/ffffff?text=Green+Vibe" alt="Template 3 Thumbnail">
+                    <p>Green Vibe</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <h2>Live Preview:</h2>
+            <div id="id-card-preview-area">
+                <p>Enter a username and click "Get Info" to see a preview.</p>
+            </div>
+            <button id="downloadCardBtn" style="display: none;">Download ID Card (PNG)</button>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
